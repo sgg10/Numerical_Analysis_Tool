@@ -1,2 +1,2 @@
-# Numerical_Analysis_Visualization (N.A.V.)
+# Numerical_Analysis_Tool (N.A.T.)
 Repository of Análisis Numérico 2020-1
