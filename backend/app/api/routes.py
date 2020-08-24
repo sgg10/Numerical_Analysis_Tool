@@ -1,5 +1,5 @@
 from . import api
-from .methods import Errors
+from .methods import Errors, Conversions, Rounded
 
 @api.route('/test')
 def test():
@@ -48,4 +48,66 @@ def relative_without_E(x, x1):
       'x1': x1
     },
     'result': result
+  }
+
+@api.route('/methods/conversions/to-base-10/<n>&<base>')
+def conver_to_base_10(n, base):
+  result = Conversions.conver_to_base_10(n, int(base))
+  return {
+    'inputs': {
+      'n': n,
+      'base': base
+    },
+    'result': result
+  }
+
+@api.route('/methods/conversions/float_point_notation/<n>&<base>&<exp>')
+def float_point_notation(n, base, exp):
+  return {
+    'inputs': {
+      'n': n,
+      'base': base,
+      'exp': exp
+    },
+    'result': Conversions.float_point_notation(n, base, exp)
+  }
+
+@api.route('/methods/rounded/default_round/<n>&<figure>')
+def default_round(n, figure):
+  return {
+    'inputs': {
+      'n': n,
+      'figure': figure 
+    },
+    'result': Rounded.default_round(n, figure)
+  }
+
+@api.route('/methods/rounded/symmetrical_round_statistics/<n>&<figure>')
+def symmetrical_round(n, figure):
+  return {
+    'inputs': {
+      'n': n,
+      'figure': figure 
+    },
+    'result': Rounded.symmetrical_round_statistics(n, figure)
+  }
+
+@api.route('/methods/rounded/symmetrical_round_distance/<n>&<figure>')
+def symmetrical_round_distance(n, figure):
+  return {
+    'inputs': {
+      'n': n,
+      'figure': figure 
+    },
+    'result': Rounded.symmetrical_round_distance(n, figure)
+  }
+
+@api.route('/methods/rounded/excess_round/<n>&<figure>')
+def excess_round(n, figure):
+  return {
+    'inputs': {
+      'n': n,
+      'figure': figure 
+    },
+    'result': Rounded.excess_round(n, figure)
   }
