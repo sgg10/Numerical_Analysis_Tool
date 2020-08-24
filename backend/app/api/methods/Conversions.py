@@ -22,7 +22,7 @@ def float_point_notation(n, b=10, exp=0):
         move += 1
         continue
       break
-    for i in range(move):
+    for _ in range(move):
       copyN.pop(0)
     copyN = ''.join(copyN)
     move *= -1
