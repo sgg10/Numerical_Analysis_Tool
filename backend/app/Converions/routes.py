@@ -1,5 +1,5 @@
 from . import conversions
-from .methods import *
+from ..Methods.Conversions import *
 
 @conversions.route('/to-base-10/<n>&<base>')
 def conver_n_to_base_10(n, base):

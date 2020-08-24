@@ -1,5 +1,5 @@
 from . import errors
-from .methods import *
+from ..Methods.Errors import *
 
 @errors.route('/absolute/<x>&<x1>')
 def absolute_errors(x, x1):

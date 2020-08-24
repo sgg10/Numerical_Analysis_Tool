@@ -1,5 +1,5 @@
 from . import rounded
-from .methods import default_round, symmetrical_round_distance, symmetrical_round_statistics, excess_round
+from ..Methods.Rounded import default_round, symmetrical_round_distance, symmetrical_round_statistics, excess_round
 
 @rounded.route('/default_round/<n>&<figure>')
 def defaults_round(n, figure):
