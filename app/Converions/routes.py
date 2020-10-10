@@ -22,3 +22,12 @@ def float_point(n, base, exp):
     },
     'result': float_point_notation(n, base, exp)
   }
+
+@conversions.route('/decimal_to_binary/<n>')
+def decimal_to_binaries(n):
+  return {
+    'inputs': {
+      'n': n
+    },
+    'result': decimal_to_binary(n)
+  }

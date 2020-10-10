@@ -16,5 +16,3 @@ def not_found(error):
     "name": "Error 404 - Not Found",
     "msg": error
   }
-
-# Routes
