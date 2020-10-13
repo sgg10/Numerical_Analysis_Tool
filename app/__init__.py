@@ -6,6 +6,7 @@ from .Biseccion import biseccion
 from .ReglaFalsa import reglaFalsa
 from .Newton import newton
 from .Secante import secante 
+from .PuntoFijo import puntoFijo
 
 def create_app():
   app = Flask(__name__)
@@ -16,4 +17,5 @@ def create_app():
   app.register_blueprint(reglaFalsa)
   app.register_blueprint(newton)
   app.register_blueprint(secante)
+  app.register_blueprint(puntoFijo)
   return app
