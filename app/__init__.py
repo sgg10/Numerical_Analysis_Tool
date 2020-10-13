@@ -7,6 +7,7 @@ from .ReglaFalsa import reglaFalsa
 from .Newton import newton
 from .Secante import secante 
 from .PuntoFijo import puntoFijo
+from .RaicesMultiples import raicesMultiples
 
 def create_app():
   app = Flask(__name__)
@@ -18,4 +19,5 @@ def create_app():
   app.register_blueprint(newton)
   app.register_blueprint(secante)
   app.register_blueprint(puntoFijo)
+  app.register_blueprint(raicesMultiples)
   return app
