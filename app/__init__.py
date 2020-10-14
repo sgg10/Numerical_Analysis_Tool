@@ -8,6 +8,7 @@ from .Newton import newton
 from .Secante import secante 
 from .PuntoFijo import puntoFijo
 from .RaicesMultiples import raicesMultiples
+from .BusquedaIncrementales import busquedaIncrementales
 
 def create_app():
   app = Flask(__name__)
@@ -20,4 +21,5 @@ def create_app():
   app.register_blueprint(secante)
   app.register_blueprint(puntoFijo)
   app.register_blueprint(raicesMultiples)
+  app.register_blueprint(busquedaIncrementales)
   return app
