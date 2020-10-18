@@ -1,14 +1,14 @@
-from . import gaussianElimination
-from ..Methods.Eliminacion import Gaussian, Parcial, Total
+from . import gaussian_elimination
+from ..Methods.Elimination import Gaussian, Partial_Pivot, Total_Pivot
 
-@gaussianElimination.route('/simple/<n>&<A>')
-def gaussianEliminationMethod(n, A):
-  return Gaussian.GaussianElimination(n, A).run()
+@gaussian_elimination.route('/simple/<n>&<A>')
+def gaussian_elimination_method(n, A):
+  return Gaussian.Gaussian_Elimination(n, A).run()
 
-@gaussianElimination.route('/parcial/<n>&<A>')
-def gaussianEliminationMethodParcial(n, A):
-  return Parcial.EliminacionGaussianaPivoteoParcial(n, A).run()
+@gaussian_elimination.route('/Partial_Pivot/<n>&<A>')
+def gaussian_elimination_partial_pivot_method(n, A):
+  return Partial_Pivot.Gaussian_Elimination_Partial_Pivot(n, A).run()
 
-@gaussianElimination.route('/total/<n>&<A>')
-def gaussianEliminationMethodTotal(n, A):
-  return Total.EliminacionGaussianaPivoteoTotal(n, A).run()
+@gaussian_elimination.route('/Total_Pivot/<n>&<A>')
+def gaussian_elimination_total_pivot_method(n, A):
+  return Total_Pivot.Gaussian_Elimination_Total_Pivot(n, A).run()

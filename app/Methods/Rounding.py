@@ -1,4 +1,4 @@
-def base_round(n, figure):
+def base_rounding(n, figure):
   if '.' not in n:
     return f'{n}.{str(0)*int(figure)}'
   
@@ -11,39 +11,39 @@ def base_round(n, figure):
   
   return False
 
-def default_round(n, figure):
-  result = base_round(n, figure)
+def default_rounding(n, figure):
+  result = base_rounding(n, figure)
   if not result:
-    [entero, decimal] = n.split('.')
-    result = f'{"".join(entero)}.{"".join(decimal[:int(figure)])}'
+    [integer, decimal] = n.split('.')
+    result = f'{"".join(integer)}.{"".join(decimal[:int(figure)])}'
   return result
 
-def excess_round(n, figure):
-  result = base_round(n, figure)
+def excess_rounding(n, figure):
+  result = base_rounding(n, figure)
   if not result:
-    [entero, decimal] = n.split('.')
+    [integer, decimal] = n.split('.')
     decimal = list(decimal)[:int(figure)]
     decimal = ''.join(decimal)
     decimal = int(decimal) + 1
-    result = f'{entero}.{decimal}'
+    result = f'{integer}.{decimal}'
   return result
 
-def symmetrical_round_statistics(n, figure):
-  result = base_round(n, figure)
+def symmetrical_rounding_statistics(n, figure):
+  result = base_rounding(n, figure)
   if not result:
-    [entero, decimal] = n.split('.')
+    [integer, decimal] = n.split('.')
     decimal = list(decimal)[:int(figure)+1]
     up = True if decimal[-1] >= '5' else False
     decimal.pop()
     decimal = ''.join(decimal)
     decimal = int(decimal) + 1 if up else int(decimal)
-    result = f'{entero}.{decimal}'
+    result = f'{integer}.{decimal}'
   return result
 
-def symmetrical_round_distance(n, figure):
-  result = base_round(n, figure)
+def symmetrical_rounding_distance(n, figure):
+  result = base_rounding(n, figure)
   if not result:
-    [entero, decimal] = n.split('.')
+    [integer, decimal] = n.split('.')
     decimal = list(decimal)[:int(figure)+2]
     up = False
     odd = False
@@ -55,5 +55,5 @@ def symmetrical_round_distance(n, figure):
     decimal.pop()
     decimal = ''.join(decimal)
     decimal = int(decimal) + 1 if up or odd else int(decimal)
-    result = f'{entero}.{decimal}'
+    result = f'{integer}.{decimal}'
   return result

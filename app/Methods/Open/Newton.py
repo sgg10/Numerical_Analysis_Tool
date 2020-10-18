@@ -7,10 +7,10 @@ class Newton:
   df = Function('dfx')
   #comment to try push
 
-  def __init__(self, x0, tol, iter, function):
+  def __init__(self, x0, tol, iteration, function):
     self.x0 = float(x0)
     self.tol = float(tol)
-    self.iter = float(iter)
+    self.iteration = float(iteration)
     self.function = function
     self.vector = []
 
@@ -21,20 +21,20 @@ class Newton:
     fx = f.subs(x, self.x0)
     dfx = df.subs(x, self.x0)
     i = 0
-    absoluteError = self.tol + 1
+    absolute_error = self.tol + 1
     self.vector.append([str(i), str(self.x0), str(fx), str(dfx), "0"])
-    while fx != 0 and absoluteError > self.tol and dfx != 0 and i < self.iter:
+    while fx != 0 and absolute_error > self.tol and dfx != 0 and i < self.iteration:
       x1 = self.x0 - (fx/dfx)
       fx = f.subs(x, x1)
       dfx = df.subs(x, x1)
-      absoluteError = (x1 - self.x0)
-      relative_err = absoluteError / x1
+      absolute_error = (x1 - self.x0)
+      relative_error = absolute_error / x1
       self.x0 = x1
       i += 1
-      self.vector.append([str(i), str(self.x0), str(fx), str(dfx), str(relative_err)])
+      self.vector.append([str(i), str(self.x0), str(fx), str(dfx), str(relative_error)])
     if fx == 0:
       return { 'result': f'{self.x0} is a root', "iterations": self.vector }
-    elif absoluteError < self.tol:
+    elif absolute_error < self.tol:
       return { 'result': f'{self.x0} is the approximate root of the function, with a tolerance of: {self.tol}', "iterations": self.vector }
     elif dfx == 0:
       return { 'result': f'{self.x0} is a possible multiple root', "iterations": self.vector }

@@ -1,20 +1,20 @@
-def conver_to_base_10(n, b):
+def convert_to_base_10(n, b):
   n = float(n)
-  negativo = True if n < 0 else False
-  if negativo:
+  negative = True if n < 0 else False
+  if negative:
     n = abs(n)
-  [entero, decimal] = str(n).split('.')
-  [entero, decimal] = [list(entero), list(decimal)]
+  [integer, decimal] = str(n).split('.')
+  [integer, decimal] = [list(integer), list(decimal)]
   # Parte entera
-  for i in range(len(entero)):
-    entero[len(entero)-i-1] = int(entero[len(entero)-i-1]) * b**i
+  for i in range(len(integer)):
+    integer[len(integer)-i-1] = int(integer[len(integer)-i-1]) * b**i
   # Parte Decimal
   for i in range(len(decimal)):
     decimal[i] = int(decimal[i]) * b**-(i+1)
-  result = sum(entero) + sum(decimal)
-  return result if not negativo else result * -1
+  result = sum(integer) + sum(decimal)
+  return result if not negative else result * -1
 
-def float_point_notation(n, b=10, exp=0):
+def pointing_float_notation(n, b=10, exp=0):
   move = 0
   if '0.' == n[:2]:
     copyN = list(n[2:])
@@ -36,35 +36,35 @@ def float_point_notation(n, b=10, exp=0):
     'base': f'{b}^{int(exp) + move}'
   }
 
-def decimal_to_binary(n):
-  negativo = True if float(n) < 0 else False
-  if negativo:
+def convert_decimal_to_binary(n):
+  negative = True if float(n) < 0 else False
+  if negative:
     n = n.replace('-', '')
-  [entero, decimal] = n.split('.')
-  [entero, decimal] = [int(entero), decimal]
+  [integer, decimal] = n.split('.')
+  [integer, decimal] = [int(integer), decimal]
   # Parte entera
-  b_entero = []
+  b_integer = []
   while True:
-    if entero == 0:
+    if integer == 0:
       break
-    residuo = entero % 2
-    entero = entero // 2
-    b_entero.append(str(residuo))
-  b_entero.reverse()
-  b_entero = int(''.join(b_entero))
-  # Parte decimal
+    remainder = integer % 2
+    integer = integer // 2
+    b_integer.append(str(remainder))
+  b_integer.reverse()
+  b_integer = int(''.join(b_integer))
+  # Decimal Part
   decimal = float(f'0.{decimal}')
   b_decimal = []
-  resultados = []
+  results = []
   while True:
     result = decimal * 2
     decimal = result % 1
     b_decimal.append(str(int(result - decimal)))
-    if decimal == 0 or result in resultados:
+    if decimal == 0 or result in results:
       break
     else:
-      resultados.append(result)
+      results.append(result)
     
   b_decimal = float(f"0.{''.join(b_decimal)}")
-  return -(b_entero + b_decimal) if negativo else b_entero + b_decimal
+  return -(b_integer + b_decimal) if negative else b_integer + b_decimal
 
