@@ -1,5 +1,5 @@
 from . import interpolacion
-from ..Methods.Interpolacion import Larange, Newton_Dif_Divididas
+from ..Methods.Interpolacion import Larange, Newton_Dif_Divididas, SplineLineal
 
 @interpolacion.route('/larange/<n>&<x>&<y>')
 def metodoInterpolacionLarange(n, x, y):
@@ -8,3 +8,7 @@ def metodoInterpolacionLarange(n, x, y):
 @interpolacion.route('/newton/<n>&<tabla>')
 def metodoInterpolacionNewton(n, tabla):
   return Newton_Dif_Divididas.InterpolacionNewton(n, list(tabla)).run()
+
+@interpolacion.route('/spline/lineal/<n>&<x>&<y>')
+def metodoInterpolacionSplineLineal(n, x, y):
+  return SplineLineal.SplineLineal(n, list(x), list(y)).run()
