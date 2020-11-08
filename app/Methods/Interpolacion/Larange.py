@@ -1,5 +1,5 @@
 import numpy as np
-from sympy import *
+from sympy import expand, Function
 from sympy.parsing.sympy_parser import parse_expr
 import math
 
@@ -40,4 +40,4 @@ class InterpolacionLarange:
     print(f'''POLINOMIO INTERPOLANTE DE LAGRANGE
       P(x) = {G}
     ''')
-    return G
+    return { 'result': G }
