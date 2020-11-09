@@ -11,6 +11,7 @@ from .RaicesMultiples import raicesMultiples
 from .BusquedaIncrementales import busquedaIncrementales
 from .EliminacionGaussiana import eliminaciongausiana
 from .Interpolacion import interpolacion
+from .Iterativos import iterativos
 
 def create_app():
   app = Flask(__name__)
@@ -26,4 +27,5 @@ def create_app():
   app.register_blueprint(busquedaIncrementales)
   app.register_blueprint(eliminaciongausiana)
   app.register_blueprint(interpolacion)
+  app.register_blueprint(iterativos)
   return app
