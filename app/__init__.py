@@ -12,6 +12,7 @@ from .BusquedaIncrementales import busquedaIncrementales
 from .EliminacionGaussiana import eliminaciongausiana
 from .Interpolacion import interpolacion
 from .Iterativos import iterativos
+from .Factorizacion import factorizacion
 
 def create_app():
   app = Flask(__name__)
@@ -28,4 +29,5 @@ def create_app():
   app.register_blueprint(eliminaciongausiana)
   app.register_blueprint(interpolacion)
   app.register_blueprint(iterativos)
+  app.register_blueprint(factorizacion)
   return app
