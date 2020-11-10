@@ -40,8 +40,7 @@ class Jacobi:
           x0.insert(j, valor)
           suma += A[i][j] * valor
 
-      valor = b.pop(i)
-      b.insert(i, valor)
+      valor = b[i]
       elemento = (valor - suma)/A[i][i]
       x1.append(elemento)
     return x1
@@ -50,10 +49,8 @@ class Jacobi:
   def norma(self, x1, x0, n):
     mayor = -1
     for i in range(n):
-      valor0 = x0.pop(i)
-      valor1 = x1.pop(i)
-      x0.insert(i, valor0)
-      x1.insert(i, valor1)
+      valor0 = x0[i]
+      valor1 = x1[i]
       if abs(valor1 - valor0) > mayor:
         mayor = abs(valor1 - valor0)/abs(valor1)
     return mayor
