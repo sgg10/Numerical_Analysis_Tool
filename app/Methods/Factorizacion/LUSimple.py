@@ -1,7 +1,7 @@
 import numpy as np
 import math
 
-class LU_Simple:
+class Simple_LU:
   def __init__(self, A, b, n):
     self.A = np.array(A).reshape(n,n)
     self.b = np.array(b).reshape(len(b), 1)
