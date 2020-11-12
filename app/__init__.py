@@ -9,7 +9,9 @@ from .Secant import secant
 from .Fixed_Point_Iteration import fixed_point_iteration
 from .Multi_Roots import multi_roots
 from .Incremental_Search import incremental_search
-
+from .Interpolation import interpolations
+from .Iterative import iterative
+from .Factoration import factoration
 def create_app():
   app = Flask(__name__)
   app.register_blueprint(conversions)
@@ -22,4 +24,7 @@ def create_app():
   app.register_blueprint(fixed_point_iteration)
   app.register_blueprint(multi_roots)
   app.register_blueprint(incremental_search)
+  app.register_blueprint(interpolations)
+  app.register_blueprint(iterative)
+  app.register_blueprint(factoration)
   return app
