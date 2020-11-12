@@ -31,6 +31,9 @@ class LU_Simple:
     return x
 
   def run(self):
+    det = np.linalg.det(self.A)
+    if det == 0:
+      return { "Error": "Matrix must be nonsingular." }
     self.n = np.size(self.A, 1)
     L = np.eye(self.n)
     U = np.zeros((self.n, self.n))
@@ -48,3 +51,4 @@ class LU_Simple:
     z = self.proggresive_subst(MLB)
     MUZ = np.concatenate((U, z), axis=1)
     result['result'] = self.back_subst(MUZ)
+    return result
